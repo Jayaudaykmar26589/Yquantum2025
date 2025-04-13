@@ -1,0 +1,29 @@
+Quantum Hash Function Analysis
+Introduction
+This document analyzes the quantum hash function designed for the Superquantum Challenge. The function utilizes quantum circuit simulations to create a cryptographically secure hash function that produces deterministic outputs while being resistant to various cryptographic attacks.
+Design Principles
+The design is based on several key principles:
+
+Limited qubit count: We cap the number of qubits at 20 to maintain computational feasibility while still providing cryptographic security.
+Multi-layered approach: We implement multiple circuit layers with different operations to ensure complexity.
+Entanglement: We use controlled operations to create entanglement between qubits, which is essential for quantum advantage.
+Multiple basis measurements: We measure expectation values in different bases (X, Y, Z) to capture the full quantum state information.
+Final classical mixing: We apply post-processing to ensure the avalanche effect and to stretch the quantum measurements to fill the desired output size.
+
+Analysis Against Criteria
+1. Output Determinism
+The hash function is deterministic - it will always produce the same output for a given input. This is guaranteed because:
+
+The quantum circuit construction is deterministic based on input bytes
+We use expectation values rather than sampling from measurements
+The post-processing steps are deterministic
+
+2. Preservation of Entropy
+The function preserves entropy well because:
+
+Initial Hadamard gates create a uniform superposition
+Multiple measurement bases capture full quantum state information
+The final mixing step helps distribute entropy across the output
+XOR operations and bit rotations in the final stage ensure uniform distribution
+
+To quantitatively demonstrate entropy preservation, we can examine the distribution of output bytes when fed with random inputs:
